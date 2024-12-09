@@ -10,10 +10,10 @@ class Product:
         return f'{self.name}, {self.weight}, {self.category}'
 
 class Shop:
-    __file_name = 'product.txt'
+    __file_name = "product.txt"
 
     def get_products(self):
-        file = open(self.__file_name, 'r')
+        file = open(self.__file_name, "r")
         all_products = file.read()
         file.close()
         return all_products
@@ -23,7 +23,7 @@ class Shop:
             if self.find_product(c.name):
                 print(f'Продукт {c.name} уже есть в магазине')
             else:
-                file = open(self.__file_name, 'a')
+                file = open(self._Shop__file_name, 'a')
                 file.write(f'{c}\n')
                 file.close()
 
