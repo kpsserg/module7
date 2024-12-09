@@ -23,7 +23,7 @@ class WordsFinder:
         results = []
         for key, value in self.all_words.items():
             for i in range(0, len(value)):
-                if word in value[i]:
+                if word.lower() in value[i].lower():
                     results.append(f"{word} найдено в файле {key}, {i + 1} слово в тексте")
                     break
         if not results:
@@ -37,29 +37,38 @@ class WordsFinder:
         for key, value in self.all_words.items():
             count[key] = 0
             for i in range(0, len(value)):
-                if word in value[i]:
+                if word.lower() in value[i].lower():
                     count[key] += 1
         for k, v in count.items():
             results += (f"В файле {k} {word} найдено {v} раз(а)\n")
         return results
 
+# проверка работы ч.1
+finder1 = WordsFinder('test_file.txt')
+print(finder1.get_all_words())
+print(finder1.find('TEXT'))
+print(finder1.count('teXT'))
 
-# finder1 = WordsFinder('test_file.txt', 'test_file2.txt')
-# print(finder1.get_all_words())
-# print(finder1.find('te'))
-# print(finder1.count('te'))
-#
+# проверка работы ч.2
 # finder2 = WordsFinder('test_file3.txt')
 # print(finder2.get_all_words())
 # print(finder2.find('captain'))
 # print(finder2.count('captain'))
-#
+
+# проверка работы ч.3
 # finder3 = WordsFinder('test_file4.txt')
 # print(finder3.get_all_words())
 # print(finder3.find('if'))
 # print(finder3.count('if'))
 
-finder4 = WordsFinder('test_file3.txt', 'test_file4.txt', 'test_file5.txt' )
-print(finder4.get_all_words())
-print(finder4.find('the'))
-print(finder4.count('the'))
+# проверка работы ч.4
+# finder4 = WordsFinder('test_file5.txt')
+# print(finder4.get_all_words())
+# print(finder4.find('Child'))
+# print(finder4.count('Child'))
+
+# проверка работы ч.5
+# finder5 = WordsFinder('test_file3.txt', 'test_file4.txt', 'test_file5.txt' )
+# print(finder5.get_all_words())
+# print(finder5.find('the'))
+# print(finder5.count('the'))
